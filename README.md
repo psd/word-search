@@ -1,17 +1,19 @@
-usage: guess.py [-h] [-v] [-n] [-l LIMIT] [-p PATH]
-                [excludes] [includes] [match]
+# guess wordle words
 
-Guess wordle, duotrigortle etc words
+	usage: guess.py [-h] [-v] [-n] [-l LIMIT] [-p PATH]
+			[excludes] [includes] [match]
 
-positional arguments:
-  excludes              letters to exclude
-  includes              letters to include
-  match                 regular expression to match
+	Guess wordle, duotrigortle etc words
 
-options:
-  -h, --help            show this help message and exit
-  -v, --verbose
-  -n, --norepeat        guesses without repeating letters
-  -l LIMIT, --limit LIMIT
-                        limit the number of guesses
-  -p PATH, --path PATH  path of words file
+	positional arguments:
+	  excludes              letters to exclude
+	  includes              letters to include
+	  match                 regular expression to match
+
+	options:
+	  -h, --help            show this help message and exit
+	  -v, --verbose
+	  -n, --norepeat        guesses without repeating letters
+	  -l LIMIT, --limit LIMIT
+				limit the number of guesses
+	  -p PATH, --path PATH  path of words file
