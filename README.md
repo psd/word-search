@@ -17,3 +17,38 @@
 	  -l LIMIT, --limit LIMIT
 				limit the number of guesses
 	  -p PATH, --path PATH  path of words file
+
+# examples
+
+	$ ./guess.py
+	stare
+	arose
+	irate
+	raise
+	arise
+	later
+	alter
+	slate
+	2307 more ...
+
+	$ ./guess.py stare
+	login
+	lingo
+	could
+	logic
+	cloud
+	nobly
+	cling
+	blond
+	219 more ...
+
+	$ ./guess.py stare logi
+	login
+	lingo
+	logic
+	igloo
+
+	$ ./guess.py stare logi '.[^i]...'
+	login
+	logic
+	igloo
