@@ -67,9 +67,13 @@ class WordGuesser:
         return found
 
     def print_scores(self):
+        n = 0
         for letter, count in ranked(self.letters):
             percent = count * 100.0 / float(self.letters_count)
-            print(f"{letter}({percent:.1f}%) ", end="")
+            print(f"{letter} ({percent:.1f}%) ", end="")
+            n = n + 1
+            if 0 == n % 4:
+                print("\n ", end="")
 
         print()
 
