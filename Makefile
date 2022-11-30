@@ -1,13 +1,18 @@
 .PHONY: init all lint test
 
+SOURCE=$(wildcard wordsearch/*.py)
+
 all:: lint test
 
 test::
 	:
 
 lint::
-	black --check *.py
-	flake8 *.py
+	black --check $(SOURCE)
+	flake8 $(SOURCE)
+
+README.md: $(SOURCE) bin/readme.sh
+	bin/readme.sh > $@
 
 init::
 	pip3 install -r requirements.txt

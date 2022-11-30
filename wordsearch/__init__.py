@@ -1,0 +1,1 @@
+from .wordsearcher import WordSearcher

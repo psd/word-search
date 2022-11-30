@@ -1,14 +1,11 @@
-#!/usr/bin/env python3
-
 import re
-import argparse
 
 
 def ranked(dictionary):
     return sorted(dictionary.items(), key=lambda item: item[1], reverse=True)
 
 
-class WordGuesser:
+class WordSearcher:
     def __init__(self):
         self.words = {}
         self.letters = {}
@@ -36,8 +33,8 @@ class WordGuesser:
                 place = place + 1
 
     def search(self, excludes="", includes="", match="", norepeat=False, occurance_factor=2, place_factor=1):
-        excludes = set(args.excludes or "")
-        includes = set(args.includes or "")
+        excludes = set(excludes or "")
+        includes = set(includes or "")
         excludes = excludes - includes
 
         found = {}
@@ -66,22 +63,22 @@ class WordGuesser:
 
         return found
 
-    def print_scores(self):
+    def print_scored_letters(self, letters):
         n = 0
-        for letter, count in ranked(self.letters):
+        for letter, count in ranked(letters):
             percent = count * 100.0 / float(self.letters_count)
             print(f"{letter} ({percent:.1f}%) ", end="")
             n = n + 1
             if 0 == n % 4:
                 print("\n ", end="")
+        print("\n")
 
-        print()
+    def print_scores(self):
+        self.print_scored_letters(self.letters)
 
         for place, letters in self.places.items():
             print(f"{place+1}: ", end="")
-            for letter, count in ranked(letters):
-                print(f"{letter}", end="")
-            print()
+            self.print_scored_letters(letters)
 
     def print_found(self, found, limit=8, print_scores=False, print_more=True):
         n = 0
@@ -96,26 +93,3 @@ class WordGuesser:
         if print_more:
             if n > limit:
                 print("%d more ..." % (n - limit))
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Guess wordle, duotrigortle etc words")
-    parser.add_argument("excludes", nargs="?", help="letters to exclude", type=str)
-    parser.add_argument("includes", nargs="?", help="letters to include", type=str)
-    parser.add_argument("match", nargs="?", help="regular expression to match", type=str)
-    parser.add_argument("-l", "--limit", help="limit the number of guesses", type=int, default=8)
-    parser.add_argument("-n", "--norepeat", help="guesses without repeating letters", action="store_true")
-    parser.add_argument("-p", "--path", help="path of words file", type=str, default="words")
-    parser.add_argument("-s", "--print-scores", help="print scores", action="store_true")
-    parser.add_argument("-t", "--terse", help="only print the results", action="store_true")
-    args = parser.parse_args()
-
-    guesser = WordGuesser()
-    guesser.load_words(args.path)
-    guesser.score_letters()
-
-    if args.print_scores:
-        guesser.print_scores()
-
-    found = guesser.search(args.excludes, args.includes, args.match, args.norepeat)
-    guesser.print_found(found, print_scores=args.print_scores, print_more=not args.terse)
