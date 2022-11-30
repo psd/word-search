@@ -2,7 +2,7 @@
 
 SOURCE=$(wildcard wordsearch/*.py)
 
-all:: lint test
+all:: lint test README.md
 
 test::
 	:

@@ -5,7 +5,7 @@
 cat <<-!
 # Word search
 
-Search a dictionary for words for wordle, dutrigortle etc
+Search a dictionary for words for wordle, duotrigortle etc
 !
 
 while read args
