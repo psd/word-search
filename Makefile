@@ -5,7 +5,7 @@ SOURCE=$(wildcard wordsearch/*.py)
 all:: lint test README.md
 
 test::
-	:
+	pytest
 
 lint::
 	black --check $(SOURCE)
@@ -15,4 +15,4 @@ README.md: $(SOURCE) bin/readme.sh
 	bin/readme.sh > $@
 
 init::
-	pip3 install -r requirements.txt
+	pip install -e ./

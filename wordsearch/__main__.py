@@ -4,7 +4,7 @@ import argparse
 from .wordsearcher import WordSearcher
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser("word-search", description="Search wordle, duotrigortle etc words")
     parser.add_argument("excludes", nargs="?", help="letters to exclude", type=str)
     parser.add_argument("includes", nargs="?", help="letters to include", type=str)
@@ -25,3 +25,7 @@ if __name__ == "__main__":
 
     found = searcher.search(args.excludes, args.includes, args.match, args.norepeat)
     searcher.print_found(found, print_scores=args.print_scores, print_more=not args.terse)
+
+
+if __name__ == "__main__":
+    main()
