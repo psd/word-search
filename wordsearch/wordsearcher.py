@@ -1,16 +1,9 @@
 import re
-import importlib.resources
+from importlib.resources import files
 
 
 def ranked(dictionary):
     return sorted(dictionary.items(), key=lambda item: item[1], reverse=True)
-
-
-def open_path(path):
-    if path:
-        return open(path)
-
-    return importlib.resources.open_text(__package__, "words")
 
 
 class WordSearcher:
@@ -21,7 +14,8 @@ class WordSearcher:
         self.places = {}
 
     def load_words(self, path=None):
-        with open_path(path) as f:
+        path = path or files(__package__).joinpath("words")
+        with open(path) as f:
             for word in f:
                 self.words[word.strip().lower()] = 0
 
