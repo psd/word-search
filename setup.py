@@ -23,7 +23,7 @@ setup(
     license="MIT",
     url="https://github.com/psd/word-search",
     packages=find_packages(exclude="tests"),
-    package_data={"word-search": ["words"]},
+    package_data={"wordsearch": ["words"]},
     include_package_data=True,
     install_requires=[],
     entry_points={"console_scripts": ["word-search=wordsearch.__main__:main"]},

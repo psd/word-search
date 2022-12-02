@@ -11,6 +11,9 @@ lint::
 	black --check $(SOURCE)
 	flake8 $(SOURCE)
 
+black::
+	black $(SOURCE)
+
 README.md: $(SOURCE) bin/readme.sh
 	bin/readme.sh > $@
 

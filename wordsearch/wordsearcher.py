@@ -1,4 +1,5 @@
 import re
+import importlib.resources
 
 
 def ranked(dictionary):
@@ -12,7 +13,9 @@ class WordSearcher:
         self.letters_count = 0
         self.places = {}
 
-    def load_words(self, path):
+    def load_words(self, path=None):
+        path = path or importlib.resources.path("wordsearch", "words")
+
         with open(path) as f:
             for word in f:
                 self.words[word.strip().lower()] = 0
