@@ -31,11 +31,10 @@ setup(
     extras_require={
         "test": [
             "black",
-            "coverage",
-            "coveralls",
             "flake8",
             "flake8-pyproject",
             "pytest",
+            "pytest-cov",
         ]
     },
     classifiers=[

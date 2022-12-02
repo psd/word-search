@@ -5,7 +5,7 @@ SOURCE=$(wildcard wordsearch/*.py)
 all:: lint test README.md
 
 test::
-	pytest
+	pytest --cov=./ --cov-report=xml
 
 lint::
 	black --check $(SOURCE)
@@ -18,4 +18,4 @@ README.md: $(SOURCE) bin/readme.sh
 	bin/readme.sh > $@
 
 init::
-	pip install -e ./
+	pip install -e .[test]
