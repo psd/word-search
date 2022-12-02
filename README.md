@@ -1,12 +1,12 @@
 # Word search
-[![CI](https://github.com/psd/word-search/actions/workflows/ci.yml/badge.svg)](https://github.com/psd/word-search/actions/workflows/ci.yml)
+[![Continous Integration](https://github.com/psd/word-search/actions/workflows/ci.yml/badge.svg)](https://github.com/psd/word-search/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/psd/word-search/branch/main/graph/badge.svg?token=UYE88EF1A8)](https://codecov.io/gh/psd/word-search)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/psd/word-search/blob/main/LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://black.readthedocs.io/en/stable/)
 
 Search a dictionary for words for wordle, duotrigortle etc
 ```
-python -m wordsearch --help
+word-search --help
 
 usage: word-search [-h] [-l LIMIT] [-n] [-p PATH] [-s] [-t]
                    [excludes] [includes] [match]
@@ -29,7 +29,7 @@ options:
 ```
 
 ```
-python -m wordsearch
+word-search
 
 stare
 arose
@@ -43,7 +43,7 @@ slate
 ```
 
 ```
-python -m wordsearch stare
+word-search stare
 
 login
 lingo
@@ -57,7 +57,7 @@ blond
 ```
 
 ```
-python -m wordsearch stare log
+word-search stare log
 
 login
 lingo
@@ -71,13 +71,13 @@ igloo
 ```
 
 ```
-python -m wordsearch stare log 'l[^o]'
+word-search stare log 'l[^o]'
 
 lingo
 ```
 
 ```
-python -m wordsearch -s
+word-search -s
 
 e (10.7%) a (8.5%) r (7.8%) o (6.5%) 
  t (6.3%) l (6.2%) i (5.8%) s (5.8%) 
@@ -138,7 +138,7 @@ e (10.7%) a (8.5%) r (7.8%) o (6.5%)
 ```
 
 ```
-python -m wordsearch -p /usr/share/dict/words stare log 'l[^o]'
+word-search -p /usr/share/dict/words stare log 'l[^o]'
 
 lionizing
 lingo
