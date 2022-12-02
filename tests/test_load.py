@@ -1,5 +1,6 @@
 #!/usr/bin/env -S pytest -svv
 
+import pytest
 from wordsearch import WordSearcher
 
 
