@@ -6,6 +6,13 @@ def ranked(dictionary):
     return sorted(dictionary.items(), key=lambda item: item[1], reverse=True)
 
 
+def open_path(path):
+    if path:
+        return open(path)
+
+    return importlib.resources.open_text(__package__, "words")
+
+
 class WordSearcher:
     def __init__(self):
         self.words = {}
@@ -14,9 +21,7 @@ class WordSearcher:
         self.places = {}
 
     def load_words(self, path=None):
-        path = path or importlib.resources.path(__package__, "words")
-
-        with open(path) as f:
+        with open_path(path) as f:
             for word in f:
                 self.words[word.strip().lower()] = 0
 
