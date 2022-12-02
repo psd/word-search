@@ -14,7 +14,7 @@ class WordSearcher:
         self.places = {}
 
     def load_words(self, path=None):
-        path = path or importlib.resources.path("wordsearch", "words")
+        path = path or importlib.resources.path(__package__, "words")
 
         with open(path) as f:
             for word in f:
