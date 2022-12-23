@@ -7,7 +7,7 @@ from wordsearch import WordSearcher
 def test_load_package():
     searcher = WordSearcher()
 
-    searcher.load_words()
+    searcher.load_words("words")
     assert len(searcher.words) == 2315
 
 

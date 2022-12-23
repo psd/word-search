@@ -11,7 +11,7 @@ def main():
     parser.add_argument("match", nargs="?", help="regular expression to match", type=str)
     parser.add_argument("-l", "--limit", help="limit the number of words", type=int, default=8)
     parser.add_argument("-n", "--norepeat", help="find words without repeating letters", action="store_true")
-    parser.add_argument("-p", "--path", help="path of words file to search", type=str)
+    parser.add_argument("-p", "--path", help="path of words file to search", type=str, default="./words")
     parser.add_argument("-s", "--print-scores", help="print scores", action="store_true")
     parser.add_argument("-t", "--terse", help="only print the results", action="store_true")
     args = parser.parse_args()
